@@ -1,15 +1,28 @@
 const express = require('express');
 const path = require('path');
-const app = express();
+const products = require('./rest-api/api');
 
-const PORT = 9000;
+const publicServer = express();
+const apiServer = express();
 
-app.use(express.static('public'))
+const PUBLIC_APP_PORT = 9000;
+const API_PORT = 4001;
 
-app.get('/', (req, res) => {
+publicServer.use(express.static('public'))
+
+publicServer.get('/', (req, res) => {
   res.send('index.html');
-})
+});
 
-app.listen(PORT, () => {
-  console.log(`App running on http://localhost:${PORT}`);
+apiServer.get('/products', (req, res) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.send(products);
+});
+
+apiServer.listen(API_PORT, () => {
+  console.log(`API running on ${API_PORT}`);
+});
+
+publicServer.listen(PUBLIC_APP_PORT, () => {
+  console.log(`App running on http://localhost:${PUBLIC_APP_PORT}`);
 });

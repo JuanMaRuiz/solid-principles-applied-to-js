@@ -7,7 +7,7 @@
     "test": "lint && mocha",
     "lint": "eslint ./src",
     "lintFix": "eslint ./src --fix",
-    "start": "nodemon ./rest-api/api.js"
+    "start": "node app.js"
   },
   "keywords": [],
   "author": "",
