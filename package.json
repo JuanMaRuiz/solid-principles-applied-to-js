@@ -1,0 +1,26 @@
+{
+  "name": "solid-principles-js-examples",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "lint && mocha",
+    "lint": "eslint ./src",
+    "lintFix": "eslint ./src --fix",
+    "start": "nodemon server"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.17.3",
+    "express": "^4.16.4",
+    "mocha": "^5.2.0",
+    "nodemon": "^1.18.10",
+    "sinon": "^7.2.3"
+  }
+}

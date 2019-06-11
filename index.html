@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Solid principles</title>
+</head>
+<body>
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="#">Single Responsibility Principle</a>
+</nav>
+    <main class="container">
+        <section class="row">
+            <header class="mt-4 col-lg-12">
+                <h2>Original implementation</h2>
+            </header>
+            <div class="col-sm">
+                <div class="mt-4">
+                    <header>
+                        <h4>List of products</h4>
+                    </header>
+                    <ul id="products" class="list-group"></ul>
+                </div>
+            </div>
+            <div class="col-sm">
+                <div class="mt-4">
+                    <header>
+                        <h4>Shopping Cart</h4>
+                    </header>
+                    <ul id="cart" class="list-group"></ul>
+                </div>
+            </div>
+        </section>
+        <section class="row">
+                <header class="mt-4 col-lg-12">
+                    <h2>SRP implementation</h2>
+                </header>
+            <div class="col-sm">
+                <div class="mt-4">
+                    <header>
+                        <h4>List of products</h4>
+                    </header>
+                    <ul id="products-srp" class="list-group"></ul>
+                </div>
+            </div>
+            <div class="col-sm">
+                <div class="mt-4">
+                    <header>
+                        <h4>Shopping Cart</h4>
+                    </header>
+                    <ul id="cart-srp" class="list-group"></ul>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="./src/js/shopping-cart-start/Product.js"></script>
+    <script src="./src/js/shopping-cart-start/Cart.js"></script>
+    <script src="./src/js/shopping-cart-start/View.js"></script>
+</body>
+
+</html>
