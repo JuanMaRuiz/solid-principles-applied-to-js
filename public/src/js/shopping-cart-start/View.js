@@ -1,14 +1,29 @@
-/* eslint-disable no-param-reassign */
-(function (sc) {
-  var shoppingCart = sc || {};
+(function (scope) {
+  'use strict';
 
   const products = [
-    new sc.Product(1, 'Star Wars Lego Ship'),
-    new sc.Product(2, 'Barbie Doll'),
-    new sc.Product(3, 'Remote Control Airplane'),
+    new scope.app.Product(1, 'Star Wars Lego Ship'),
+    new scope.app.Product(2, 'Barbie Doll'),
+    new scope.app.Product(3, 'Remote Control Airplane'),
   ];
 
-  const cart = new sc.Cart();
+  function View() {
+
+  }
+
+  const cart = new scope.app.Cart();
+
+  View.prototype.init = function() {
+    products.forEach((product) => {
+      const li = createLi({
+        id: product.getId(),
+        parent: '#products',
+        text: product.getDescription(),
+      });
+
+      li.addEventListener('click', addToCart.bind(li));
+    });
+  };
 
   const createLi = ({
     className = 'list-group-item', id, text, parent,
@@ -34,13 +49,6 @@
     });
   }
 
-  products.forEach((product) => {
-    const li = createLi({
-      id: product.getId(),
-      parent: '#products',
-      text: product.getDescription(),
-    });
-
-    li.addEventListener('click', addToCart.bind(li));
-  });
-}(shoppingCart));
+  scope.app = window.app || {};
+  scope.app.View = View;
+}(window));

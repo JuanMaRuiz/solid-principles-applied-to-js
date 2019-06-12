@@ -1,6 +1,4 @@
-/* eslint-disable no-param-reassign */
-(function (sc) {
-  var sc = sc || {};
+(function (scope) {
   function Cart() {
     this.items = [];
   }
@@ -9,9 +7,6 @@
     this.items.push(item);
   };
 
-  if (shoppingCart.Cart) {
-    console.error('shoppingCart.Cart already exists');
-  } else {
-    sc.Cart = Cart;
-  }
-}(shoppingCart));
+  scope.app = scope.app || {};
+  scope.app.Cart = Cart;
+}(window));

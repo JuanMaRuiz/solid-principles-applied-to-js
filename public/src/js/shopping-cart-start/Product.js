@@ -1,6 +1,5 @@
-/* eslint-disable no-param-reassign */
 (function (scope) {
-  var shoppingCart = scope.shoppingCart || {};
+  'use strict';
 
   function Product(id, description) {
     this.id = id;
@@ -14,10 +13,6 @@
     return this.description;
   };
 
-  if (!scope.shoppingCart) {
-    scope.shoppingCart = shoppingCart;
-    shoppingCart.Product = Product;
-  } else {
-    console.error('shoppingCart already exists');
-  }
+  scope.app = scope.app || {};
+  scope.app.Product = Product;
 }(window));
