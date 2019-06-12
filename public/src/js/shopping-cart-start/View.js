@@ -7,6 +7,8 @@
     new scope.app.Product(3, 'Remote Control Airplane'),
   ];
 
+  const products2 = jq.ajax('http://localhost:4001/products/');
+
   function View() {
 
   }
