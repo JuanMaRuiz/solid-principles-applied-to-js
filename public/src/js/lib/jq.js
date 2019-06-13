@@ -1,4 +1,5 @@
-(function(scope){
+(function (scope) {
+  'use strict';
 
   function ajax(url) {
     return fetch(url)
@@ -6,8 +7,13 @@
       .then(data => data );
   }
 
-
+  function $on(target, type, cb) {
+    target.addEventListener(type, cb, false);
+  }
 
   scope.jq = scope.jq || {};
-  scope.jq.ajax = ajax;
+  scope.jq = {
+    ajax,
+    $on
+  };
 })(window);

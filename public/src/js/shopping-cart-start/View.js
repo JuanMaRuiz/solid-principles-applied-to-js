@@ -5,12 +5,12 @@
   let listOfProducts = [];
 
   function View() {
-
+    return this;
   }
 
   const cart = new scope.app.Cart();
 
-  View.prototype.init = function() {
+  View.prototype.init = () => {
     data.then(products => {
       products.forEach((product) => {
 
@@ -23,10 +23,12 @@
           text: item.getDescription(),
         });
 
-        li.addEventListener('click', addToCart.bind(li));
-        console.log('products: ', products);
+        jq.$on(li, 'click', addToCart.bind(li));
       });
-    });
+    })
+      .catch(err => {
+        console.error('There was an error retrieving the products');
+      });
   };
 
   const createLi = ({

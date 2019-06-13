@@ -1,7 +1,6 @@
 (function(scope){
   'use strict';
 
-  var shoppingCart = new scope.app.View();
-  shoppingCart.init();
+  new scope.app.View().init();
 
 })(window);
