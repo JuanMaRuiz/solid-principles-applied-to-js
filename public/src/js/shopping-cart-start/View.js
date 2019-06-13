@@ -1,13 +1,8 @@
 (function (scope) {
   'use strict';
 
-  const products = [
-    new scope.app.Product(1, 'Star Wars Lego Ship'),
-    new scope.app.Product(2, 'Barbie Doll'),
-    new scope.app.Product(3, 'Remote Control Airplane'),
-  ];
-
-  const products2 = jq.ajax('http://localhost:4001/products/');
+  const data = jq.ajax('http://localhost:4001/products/');
+  let listOfProducts = [];
 
   function View() {
 
@@ -16,14 +11,21 @@
   const cart = new scope.app.Cart();
 
   View.prototype.init = function() {
-    products.forEach((product) => {
-      const li = createLi({
-        id: product.getId(),
-        parent: '#products',
-        text: product.getDescription(),
-      });
+    data.then(products => {
+      products.forEach((product) => {
 
-      li.addEventListener('click', addToCart.bind(li));
+        const item = new scope.app.Product(product.id, product.description);
+        listOfProducts.push(item);
+
+        const li = createLi({
+          id: item.getId(),
+          parent: '#products',
+          text: item.getDescription(),
+        });
+
+        li.addEventListener('click', addToCart.bind(li));
+        console.log('products: ', products);
+      });
     });
   };
 
@@ -40,7 +42,7 @@
   };
 
   function addToCart() {
-    const product = products.filter(item => item.getId().toString() === this.id)[0];
+    const product = listOfProducts.filter(item => item.getId().toString() === this.id)[0];
 
     cart.addItem(product);
 

@@ -1,12 +1,9 @@
 (function(scope){
 
   function ajax(url) {
-    return fetch(url, {
-      mode: 'no-cors'})
-      .then(function(response) {
-        response.json();
-      })
-      .then(data => JSON.stringify(data))
+    return fetch(url)
+      .then(response => response.json())
+      .then(data => data );
   }
 
 
