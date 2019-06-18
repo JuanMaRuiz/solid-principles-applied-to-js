@@ -20,7 +20,7 @@ apiServer.get('/products', (req, res) => {
 });
 
 apiServer.listen(API_PORT, () => {
-  console.log(`API running on http://localhost:${API_PORT}`);
+  console.log(`API running on http://localhost:${API_PORT}/products`);
 });
 
 publicServer.listen(PUBLIC_APP_PORT, () => {

@@ -24,7 +24,7 @@
       };
       xhr.onerror = () => reject(xhr.statusText);
       xhr.send();
-    })
+    });
   }
 
   function $on(target, type, cb) {

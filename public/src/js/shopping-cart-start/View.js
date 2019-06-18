@@ -14,13 +14,13 @@
     data.then(products => {
       products.forEach((product) => {
 
-        const item = new scope.app.Product(product.id, product.description);
+        const item = new scope.app.Product(product.id, product.name);
         listOfProducts.push(item);
 
         const li = createLi({
           id: item.getId(),
           parent: '#products',
-          text: item.getDescription(),
+          text: item.getName(),
         });
 
         jq.$on(li, 'click', addToCart.bind(li));
@@ -49,7 +49,7 @@
     cart.addItem(product);
 
     createLi({
-      text: product.getDescription(),
+      text: product.getName(),
       id: product.getId(),
       parent: '#cart',
     });
